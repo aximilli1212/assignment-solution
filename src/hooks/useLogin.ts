@@ -1,6 +1,13 @@
 import { computed, ref } from 'vue'
 import { validEmail } from '~/utils/validEmail'
 
+interface User {
+  id: number
+  name: string
+  email: string
+  role: 'user' | 'admin'
+  createdAt: Date
+}
 interface LoginValues {
   email: Ref<string>
   password: Ref<string>
@@ -16,6 +23,11 @@ interface LoginActions {
 export interface UseLogin {
   state: LoginValues
   actions: LoginActions
+}
+
+interface LoginResponse {
+  user: User
+  token: string
 }
 
 export function useLogin(): UseLogin {
@@ -34,7 +46,26 @@ export function useLogin(): UseLogin {
 
   const submitForm = async () => {
     if (isValid.value) {
-      // call API
+    // Send the data to the fake backend
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        })
+
+        // eslint-disable-next-line unused-imports/no-unused-vars
+        const data = await response.json() as LoginResponse
+
+        // Success handling
+      }
+      catch (error) {
+
+        // Error handling
+
+      }
     }
   }
 
