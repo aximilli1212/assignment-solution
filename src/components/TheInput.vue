@@ -27,7 +27,6 @@ const isErrorVisible = ref(false)
       v-model="modelValue"
       :type="isPassword ? 'password' : 'text'"
       v-bind="$attrs"
-      m="y-2"
       p="x-4 y-2"
       w="250px"
       text="center"

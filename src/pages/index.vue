@@ -20,7 +20,7 @@ const {
 
 <template>
   <div flex justify-center>
-    <div mt-10 rounded bg-white px-8 py-6 shadow-lg>
+    <div mt-10 rounded-md bg-white px-8 py-6 shadow-lg>
       <div i-carbon-campsite inline-block bg-teal-600 text-4xl />
       <p>
         <a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
@@ -31,7 +31,7 @@ const {
         <em text-sm op75>Terramate Assignment</em>
       </p>
 
-      <div py-4 />
+      <div py-10 />
 
       <TheInput
         v-model="email"
@@ -52,7 +52,7 @@ const {
         @keydown.enter="submitForm()"
       />
 
-      <div>
+      <div mt-2>
         <button
           class="m-3 text-sm btn"
           :disabled="!isValid"
